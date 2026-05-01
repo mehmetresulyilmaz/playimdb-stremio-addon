@@ -27,7 +27,7 @@ async function startServer() {
       types: ["movie", "series"],
       idPrefixes: ["tt"],
       catalogs: [],
-      logo: "https://playimdb.com/favicon.ico", // Placeholder or from the original site
+      logo: "https://fuzulimedya.netlify.app/favicon.ico",
       behaviorHints: {
         configurable: false,
         configurationRequired: false
@@ -42,7 +42,8 @@ async function startServer() {
     
     interface Stream {
       title: string;
-      url: string;
+      url?: string;
+      externalUrl?: string;
     }
 
     let streams: Stream[] = [];
@@ -51,19 +52,19 @@ async function startServer() {
       streams = [
         {
           title: "PlayIMDB - Vidsrc.to",
-          url: `https://vidsrc.to/embed/movie/${cleanId}`
+          externalUrl: `https://vidsrc.to/embed/movie/${cleanId}`
         },
         {
           title: "PlayIMDB - 2Embed",
-          url: `https://www.2embed.cc/embed/${cleanId}`
+          externalUrl: `https://www.2embed.cc/embed/${cleanId}`
         },
         {
           title: "PlayIMDB - Vidsrc.me",
-          url: `https://vidsrc.me/embed/${cleanId}`
+          externalUrl: `https://vidsrc.me/embed/${cleanId}`
         },
         {
           title: "PlayIMDB - AutoEmbed",
-          url: `https://autoembed.to/movie/${cleanId}`
+          externalUrl: `https://autoembed.to/movie/${cleanId}`
         }
       ];
     } else if (type === 'series') {
@@ -75,15 +76,15 @@ async function startServer() {
       streams = [
         {
           title: "PlayIMDB - Vidsrc.to",
-          url: `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`
+          externalUrl: `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`
         },
         {
           title: "PlayIMDB - 2Embed",
-          url: `https://www.2embed.cc/embedvr/${imdbId}/${season}/${episode}`
+          externalUrl: `https://www.2embed.cc/embedvr/${imdbId}/${season}/${episode}`
         },
         {
           title: "PlayIMDB - Vidsrc.me",
-          url: `https://vidsrc.me/embed/tv?imdb=${imdbId}&s=${season}&e=${episode}`
+          externalUrl: `https://vidsrc.me/embed/tv?imdb=${imdbId}&s=${season}&e=${episode}`
         }
       ];
     }
