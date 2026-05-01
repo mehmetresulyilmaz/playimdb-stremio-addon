@@ -51,18 +51,15 @@ async function startServer() {
     if (type === 'movie') {
       streams = [
         {
-          title: "PlayIMDB - Vidsrc.to (Mobile & PC)",
-          url: `https://vidsrc.to/embed/movie/${cleanId}`,
+          title: "PlayIMDB - Vidsrc.to (Browser)",
           externalUrl: `https://vidsrc.to/embed/movie/${cleanId}`
         },
         {
-          title: "PlayIMDB - Vidsrc.me (Fast Mobile)",
-          url: `https://vidsrc.me/embed/movie?imdb=${cleanId}`,
+          title: "PlayIMDB - Vidsrc.me (Browser)",
           externalUrl: `https://vidsrc.me/embed/movie?imdb=${cleanId}`
         },
         {
-          title: "PlayIMDB - 2Embed",
-          url: `https://www.2embed.cc/embed/${cleanId}`,
+          title: "PlayIMDB - 2Embed (Browser)",
           externalUrl: `https://www.2embed.cc/embed/${cleanId}`
         }
       ];
@@ -74,13 +71,11 @@ async function startServer() {
 
       streams = [
         {
-          title: "PlayIMDB - Vidsrc.to (Mobile & PC)",
-          url: `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`,
+          title: "PlayIMDB - Vidsrc.to (Browser)",
           externalUrl: `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`
         },
         {
-          title: "PlayIMDB - Vidsrc.me (Fast Mobile)",
-          url: `https://vidsrc.me/embed/tv?imdb=${imdbId}&s=${season}&e=${episode}`,
+          title: "PlayIMDB - Vidsrc.me (Browser)",
           externalUrl: `https://vidsrc.me/embed/tv?imdb=${imdbId}&s=${season}&e=${episode}`
         }
       ];
