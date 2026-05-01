@@ -22,9 +22,9 @@ async function startServer() {
       id: APP_ID,
       version: "1.0.0",
       name: APP_NAME,
-      description: "Direct stream links based on IMDb IDs (PlayIMDB style)",
+      description: "Direct stream links to PlayIMDB for movies",
       resources: ["stream"],
-      types: ["movie", "series"],
+      types: ["movie"],
       idPrefixes: ["tt"],
       catalogs: [],
       logo: "https://fuzulimedya.netlify.app/favicon.ico",
@@ -38,7 +38,8 @@ async function startServer() {
   // Stremio Streams
   app.get('/stream/:type/:id.json', (req, res) => {
     const { type, id } = req.params;
-    const cleanId = id.replace('.json', '');
+    // IMDb ID'yi tam olarak al (örn: tt1234567.json -> tt1234567)
+    const cleanId = id.split('.')[0];
     
     interface Stream {
       title: string;
@@ -48,20 +49,11 @@ async function startServer() {
 
     let streams: Stream[] = [];
 
-    if (type === 'movie') {
+    if (type === 'movie' && cleanId.startsWith('tt')) {
       streams = [
         {
           title: "🎬 WATCH ON PLAYIMDB",
           externalUrl: `https://www.playimdb.com/title/${cleanId}`
-        }
-      ];
-    } else if (type === 'series') {
-      const parts = cleanId.split(':');
-      const imdbId = parts[0];
-      streams = [
-        {
-          title: "🎬 WATCH ON PLAYIMDB",
-          externalUrl: `https://www.playimdb.com/title/${imdbId}`
         }
       ];
     }
