@@ -51,32 +51,17 @@ async function startServer() {
     if (type === 'movie') {
       streams = [
         {
-          title: "PlayIMDB - Vidsrc.to (Browser)",
-          externalUrl: `https://vidsrc.to/embed/movie/${cleanId}`
-        },
-        {
-          title: "PlayIMDB - Vidsrc.me (Browser)",
-          externalUrl: `https://vidsrc.me/embed/movie?imdb=${cleanId}`
-        },
-        {
-          title: "PlayIMDB - 2Embed (Browser)",
-          externalUrl: `https://www.2embed.cc/embed/${cleanId}`
+          title: "🎬 WATCH ON PLAYIMDB",
+          externalUrl: `https://www.playimdb.com/title/${cleanId}`
         }
       ];
     } else if (type === 'series') {
       const parts = cleanId.split(':');
       const imdbId = parts[0];
-      const season = parts[1];
-      const episode = parts[2];
-
       streams = [
         {
-          title: "PlayIMDB - Vidsrc.to (Browser)",
-          externalUrl: `https://vidsrc.to/embed/tv/${imdbId}/${season}/${episode}`
-        },
-        {
-          title: "PlayIMDB - Vidsrc.me (Browser)",
-          externalUrl: `https://vidsrc.me/embed/tv?imdb=${imdbId}&s=${season}&e=${episode}`
+          title: "🎬 WATCH ON PLAYIMDB",
+          externalUrl: `https://www.playimdb.com/title/${imdbId}`
         }
       ];
     }
