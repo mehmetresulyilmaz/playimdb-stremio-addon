@@ -1,0 +1,6 @@
+{
+  "name": "PlayIMDB Stremio Addon",
+  "description": "Watch movies and series directly from IMDb IDs using high-quality stream providers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
