@@ -201,15 +201,6 @@ export default function App() {
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
           <p className="text-[11px] text-white/30 text-center flex items-center gap-2">
             <span>PLAYIMDB ADDON &copy; {new Date().getFullYear()}</span>
-            <span className="w-1 h-1 rounded-full bg-white/10 hidden md:block"></span>
-            <a 
-              href="https://fuzulimedya.netlify.app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-[#F5C518] hover:underline font-bold"
-            >
-              FUZULI MEDYA
-            </a>
           </p>
         </div>
         
