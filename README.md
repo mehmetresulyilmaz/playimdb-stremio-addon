@@ -12,12 +12,12 @@ Direct stream links based on IMDb IDs, bringing the PlayIMDB experience directly
 ## 🛠 Installation
 
 ### Method 1: Direct Install
-1. Open the [App Interface](https://ais-pre-az5te2nkv2hcguxkz4t7wd-172811188247.europe-west2.run.app).
+1. Open the [App Interface](https://playimdb-stremio-addon.vercel.app).
 2. Click the **"INSTALL ADDON"** button.
 3. Stremio will open automatically and prompt for installation.
 
 ### Method 2: Manual Link
-1. Copy this manifest URL: `https://ais-pre-az5te2nkv2hcguxkz4t7wd-172811188247.europe-west2.run.app/manifest.json`
+1. Copy this manifest URL: `https://playimdb-stremio-addon.vercel.app/manifest.json`
 2. Open Stremio.
 3. Go to **Add-ons** (puzzle icon).
 4. Paste the URL into the search bar at the top right.
