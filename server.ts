@@ -33,7 +33,7 @@ async function startServer() {
         signature: "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..TJI6QIQWPdkpI66ELyzYMw.or85NgK-FVhyRkkNtCBWXzdAs4X5RWxJOEq_Ubw9C9wpBsVmNHkHTXKJx5WATaNuZSd6Op1Aju7iyXhBg9YvCTNNiR96qcc4Y3ybfQ7fviy7xC_Bmm0DzyjmAJAZ2L_H.nFyJXD2Rr9pQkI2mfAzQ9g"
       },
       behaviorHints: {
-        configurable: false,
+        configurable: true,
         configurationRequired: false
       }
     });
