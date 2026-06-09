@@ -9,6 +9,7 @@ const APP_ID = "org.playimdb.stremio";
 
 // Stremio Manifest
 app.get('/manifest.json', (req, res) => {
+  const isConfigured = req.query.configured === 'true';
   res.json({
     id: APP_ID,
     version: "1.0.0",
@@ -25,7 +26,7 @@ app.get('/manifest.json', (req, res) => {
     },
     behaviorHints: {
       configurable: true,
-      configurationRequired: false
+      configurationRequired: !isConfigured
     }
   });
 });
