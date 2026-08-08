@@ -4,7 +4,7 @@ import cors from 'cors';
 const app = express();
 app.use(cors());
 
-const APP_NAME = "PlayIMDB Addon";
+const APP_NAME = "IMDb.su Addon";
 const APP_ID = "org.playimdb.stremio";
 
 // Stremio Manifest
@@ -14,7 +14,7 @@ app.get('/manifest.json', (req, res) => {
     id: APP_ID,
     version: "1.0.0",
     name: APP_NAME,
-    description: "Direct stream links to PlayIMDB for movies )PLEASE USE AD BLOCKER)",
+    description: "Direct stream links to IMDb.su for movies )PLEASE USE AD BLOCKER)",
     resources: ["stream"],
     types: ["movie"],
     idPrefixes: ["tt"],
@@ -48,8 +48,8 @@ app.get('/stream/:type/:id.json', (req, res) => {
   if (type === 'movie' && cleanId.startsWith('tt')) {
     streams = [
       {
-        title: "🎬 Watch On Playimdb",
-        externalUrl: `https://www.playimdb.com/title/${cleanId}`
+        title: "🎬 Watch On IMDb.su",
+        externalUrl: `https://www.imdb.su/title/${cleanId}`
       }
     ];
   }

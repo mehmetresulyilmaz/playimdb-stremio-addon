@@ -106,7 +106,7 @@ export default function App() {
             </h1>
             
             <p className="text-lg lg:text-xl text-white/50 mb-10 leading-relaxed max-w-xl font-light">
-              Integrate the seamless PlayIMDb experience directly into your Stremio client. Access high-quality global streams with zero configuration.
+              Integrate the seamless IMDb.su experience directly into your Stremio client. Access high-quality global streams with zero configuration.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
@@ -185,9 +185,9 @@ export default function App() {
 {`{
   "id": "org.playimdb.stremio",
   "version": "1.0.0",
-  "name": "PlayIMDB Addon",
+  "name": "IMDb.su Addon",
   "resources": ["stream"],
-  "types": ["movie", "series"]
+  "types": ["movie"]
 }`}
                 </pre>
               </div>
@@ -200,7 +200,7 @@ export default function App() {
       <footer className="h-auto md:h-16 px-6 lg:px-10 py-6 md:py-0 flex flex-col md:flex-row items-center justify-between border-t border-white/5 bg-black/60 gap-4 mt-auto">
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
           <p className="text-[11px] text-white/30 text-center flex items-center gap-2">
-            <span>PLAYIMDB ADDON &copy; {new Date().getFullYear()}</span>
+            <span>IMDB.SU ADDON &copy; {new Date().getFullYear()}</span>
           </p>
         </div>
         
