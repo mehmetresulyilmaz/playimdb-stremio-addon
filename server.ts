@@ -58,7 +58,7 @@ async function startServer() {
       streams = [
         {
           title: "🎬 Watch On Playimdb",
-          externalUrl: `https://www.playimdb.com/title/${cleanId}`
+          externalUrl: `https://www.imdb.su/title/${cleanId}`
         }
       ];
     }
