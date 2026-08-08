@@ -49,7 +49,7 @@ app.get('/stream/:type/:id.json', (req, res) => {
     streams = [
       {
         title: "🎬 Watch On Playimdb",
-        externalUrl: `https://www.playimdb.com/title/${cleanId}`
+        externalUrl: `https://www.imdb.su/title/${cleanId}`
       }
     ];
   }
