@@ -11,7 +11,7 @@ const handleManifest = (req: express.Request, res: express.Response) => {
   res.setHeader('Content-Type', 'application/json');
   return res.json({
     id: APP_ID,
-    version: "1.0.0",
+    version: "2.0.0",
     name: APP_NAME,
     description: "Direct stream links to IMDb.su for movies (PLEASE USE AD BLOCKER)",
     resources: ["stream"],

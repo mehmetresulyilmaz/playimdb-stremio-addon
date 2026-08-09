@@ -51,7 +51,7 @@ export default function App() {
             </a>
           ))}
           <div className="w-px h-4 bg-white/20"></div>
-          <span className="text-white/40">v1.0.0-stable</span>
+          <span className="text-white/40">v2.0.0-stable</span>
         </div>
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -80,7 +80,7 @@ export default function App() {
             </a>
           ))}
           <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/40 tracking-widest">
-            <span>VERSION 1.0.0</span>
+            <span>VERSION 2.0.0</span>
             <span className="text-[#F5C518]">STABLE</span>
           </div>
         </motion.div>
@@ -98,11 +98,11 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C518]/10 border border-[#F5C518]/20 mb-6 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#F5C518] animate-pulse"></span>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-[#F5C518]">Community Addon</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-[#F5C518]">v2.0.0 Release • Community Addon</span>
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-light text-white mb-6 leading-tight tracking-tight">
-              Direct Stream <br/><span className="font-bold">from IMDb</span>
+              Direct Stream <br/><span className="font-bold">from IMDb.su</span>
             </h1>
             
             <p className="text-lg lg:text-xl text-white/50 mb-10 leading-relaxed max-w-xl font-light">
@@ -115,7 +115,7 @@ export default function App() {
                 className="w-full sm:w-auto px-6 py-4 bg-[#F5C518] hover:bg-[#d4a914] text-black font-bold text-lg rounded-xl shadow-2xl shadow-[#F5C518]/10 transition-all flex items-center justify-center gap-3 active:scale-95"
               >
                 <Play className="w-5 h-5 fill-current" />
-                <span>Stremio Uygulamasında Yükle</span>
+                <span>Install / Upgrade in Stremio App</span>
               </a>
 
               <a 
@@ -125,7 +125,7 @@ export default function App() {
                 className="w-full sm:w-auto px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/10 text-white font-bold text-lg rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95"
               >
                 <ExternalLink className="w-5 h-5" />
-                <span>Stremio Web'de Yükle</span>
+                <span>Install / Upgrade in Stremio Web</span>
               </a>
               
               <button 
@@ -133,7 +133,7 @@ export default function App() {
                 className="w-full sm:w-auto px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 font-medium rounded-xl transition-all flex items-center justify-center gap-3"
               >
                 <Download className="w-4 h-4" />
-                <span>Adresi Kopyala</span>
+                <span>Copy Manifest Link</span>
               </button>
             </div>
             
@@ -159,7 +159,7 @@ export default function App() {
                   {
                     icon: <Zap className="w-5 h-5" />,
                     title: "Instant Playback",
-                    desc: "Auto-resolution selecting based on your IMDb ID query."
+                    desc: "Auto-resolution selection based on your IMDb ID query."
                   },
                   {
                     icon: <ShieldCheck className="w-5 h-5" />,
@@ -194,7 +194,7 @@ export default function App() {
                 <pre className="text-[11px] font-mono text-white/40 leading-tight overflow-x-auto">
 {`{
   "id": "org.playimdb.stremio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "name": "IMDb.su Addon",
   "resources": ["stream"],
   "types": ["movie"]
