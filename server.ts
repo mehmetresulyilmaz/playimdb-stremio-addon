@@ -18,12 +18,11 @@ async function startServer() {
 
   // Stremio Manifest
   app.get('/manifest.json', (req, res) => {
-    const isConfigured = req.query.configured === 'true';
     res.json({
       id: APP_ID,
       version: "1.0.0",
       name: APP_NAME,
-      description: "Direct stream links to IMDb.su for movies )PLEASE USE AD BLOCKER)",
+      description: "Direct stream links to IMDb.su for movies (PLEASE USE AD BLOCKER)",
       resources: ["stream"],
       types: ["movie"],
       idPrefixes: ["tt"],
@@ -34,8 +33,8 @@ async function startServer() {
         signature: "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..TJI6QIQWPdkpI66ELyzYMw.or85NgK-FVhyRkkNtCBWXzdAs4X5RWxJOEq_Ubw9C9wpBsVmNHkHTXKJx5WATaNuZSd6Op1Aju7iyXhBg9YvCTNNiR96qcc4Y3ybfQ7fviy7xC_Bmm0DzyjmAJAZ2L_H.nFyJXD2Rr9pQkI2mfAzQ9g"
       },
       behaviorHints: {
-        configurable: true,
-        configurationRequired: !isConfigured
+        configurable: false,
+        configurationRequired: false
       }
     });
   });

@@ -12,8 +12,8 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Determine manifest URL based on current host and append configured=true
-    const url = window.location.origin + '/manifest.json?configured=true';
+    // Determine manifest URL based on current host
+    const url = window.location.origin + '/manifest.json';
     const stremioUrl = url.replace(/^https?:\/\//, 'stremio://');
     setManifestUrl(stremioUrl);
   }, []);

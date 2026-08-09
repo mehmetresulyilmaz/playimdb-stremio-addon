@@ -8,7 +8,6 @@ const APP_NAME = "IMDb.su Addon";
 const APP_ID = "org.playimdb.stremio";
 
 const handleManifest = (req: express.Request, res: express.Response) => {
-  const isConfigured = req.query.configured === 'true';
   res.setHeader('Content-Type', 'application/json');
   return res.json({
     id: APP_ID,
@@ -25,8 +24,8 @@ const handleManifest = (req: express.Request, res: express.Response) => {
       signature: "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..TJI6QIQWPdkpI66ELyzYMw.or85NgK-FVhyRkkNtCBWXzdAs4X5RWxJOEq_Ubw9C9wpBsVmNHkHTXKJx5WATaNuZSd6Op1Aju7iyXhBg9YvCTNNiR96qcc4Y3ybfQ7fviy7xC_Bmm0DzyjmAJAZ2L_H.nFyJXD2Rr9pQkI2mfAzQ9g"
     },
     behaviorHints: {
-      configurable: true,
-      configurationRequired: !isConfigured
+      configurable: false,
+      configurationRequired: false
     }
   });
 };

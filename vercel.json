@@ -10,8 +10,12 @@
       "destination": "/api/index"
     },
     {
-      "source": "/(.*)",
-      "destination": "/$1"
+      "source": "/configure",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/((?!api/|assets/|.*\\..*).*)",
+      "destination": "/index.html"
     }
   ]
 }
