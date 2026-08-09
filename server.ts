@@ -41,10 +41,10 @@ async function startServer() {
   });
 
   // Stremio Streams
-  app.get('/stream/:type/:id.json', (req, res) => {
+  app.get(['/stream/:type/:id', '/stream/:type/:id.json'], (req, res) => {
     const { type, id } = req.params;
     // IMDb ID'yi tam olarak al (örn: tt1234567.json -> tt1234567)
-    const cleanId = id.split('.')[0];
+    const cleanId = id ? id.split('.')[0] : '';
     
     interface Stream {
       title: string;

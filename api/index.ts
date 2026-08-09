@@ -7,14 +7,14 @@ app.use(cors());
 const APP_NAME = "IMDb.su Addon";
 const APP_ID = "org.playimdb.stremio";
 
-// Stremio Manifest
-app.get('/manifest.json', (req, res) => {
+const handleManifest = (req: express.Request, res: express.Response) => {
   const isConfigured = req.query.configured === 'true';
-  res.json({
+  res.setHeader('Content-Type', 'application/json');
+  return res.json({
     id: APP_ID,
     version: "1.0.0",
     name: APP_NAME,
-    description: "Direct stream links to IMDb.su for movies )PLEASE USE AD BLOCKER)",
+    description: "Direct stream links to IMDb.su for movies (PLEASE USE AD BLOCKER)",
     resources: ["stream"],
     types: ["movie"],
     idPrefixes: ["tt"],
@@ -29,13 +29,10 @@ app.get('/manifest.json', (req, res) => {
       configurationRequired: !isConfigured
     }
   });
-});
+};
 
-// Stremio Streams
-app.get('/stream/:type/:id.json', (req, res) => {
-  const { type, id } = req.params;
-  // IMDb ID'yi tam olarak al (örn: tt1234567.json -> tt1234567)
-  const cleanId = id.split('.')[0];
+const handleStream = (typeParam: string, idParam: string, res: express.Response) => {
+  const cleanId = idParam ? idParam.split('.')[0] : '';
   
   interface Stream {
     title: string;
@@ -45,7 +42,7 @@ app.get('/stream/:type/:id.json', (req, res) => {
 
   let streams: Stream[] = [];
 
-  if (type === 'movie' && cleanId.startsWith('tt')) {
+  if ((typeParam === 'movie' || !typeParam) && cleanId.startsWith('tt')) {
     streams = [
       {
         title: "🎬 Watch On IMDb.su",
@@ -54,8 +51,27 @@ app.get('/stream/:type/:id.json', (req, res) => {
     ];
   }
 
-  res.json({ streams });
+  res.setHeader('Content-Type', 'application/json');
+  return res.json({ streams });
+};
+
+// Route matches
+app.get(['/manifest.json', '/api/manifest.json'], (req, res) => handleManifest(req, res));
+
+app.get(['/stream/:type/:id', '/stream/:type/:id.json', '/api/stream/:type/:id'], (req, res) => {
+  handleStream(req.params.type, req.params.id, res);
 });
 
-// Vercel için app'i export ediyoruz
+// Fallback logic for Vercel rewrites where req.url might be /api/index or /
+app.use((req, res) => {
+  const url = req.url || req.path || '';
+  if (url.includes('/stream/')) {
+    const parts = url.split('/stream/')[1]?.split('/') || [];
+    const type = parts[0] || 'movie';
+    const id = parts[1] || '';
+    return handleStream(type, id, res);
+  }
+  return handleManifest(req, res);
+});
+
 export default app;
